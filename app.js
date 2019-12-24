@@ -1,6 +1,7 @@
 
 var express = require('express'),
 app = express(),
+host = process.env.host || '127.0.0.1',
 port = process.env.PORT || 3000,
 bodyParser = require('body-parser');
 
@@ -17,7 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.listen(port,()=>{
+app.listen(port,host,()=>{
     console.log(`Server is running on port : ${port}`);
 })
 
